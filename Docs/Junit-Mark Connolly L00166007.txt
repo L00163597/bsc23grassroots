@@ -1,1 +1,0 @@
-Junit is a software application that helps developers test their application. It allows them to write and run java on a java platform. Junit also has the ability to print the results of the test it just completed. It has two types of testing manual and automatic.

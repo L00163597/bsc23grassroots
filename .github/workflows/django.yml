@@ -2,9 +2,9 @@ name: Django CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "Develop" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "Develop" ]
 
 jobs:
   build:
@@ -23,12 +23,14 @@ jobs:
        python-version: ${{ matrix.python-version }}
 
     - name: Install dependencies
+      # This will install all of the dependencies from requirments.txt
       run: |
        cd Source
        python -m pip install --upgrade pip
        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     
     - name: Run Django Server
+      # Building and running the Django server to ensure it will compile and run
       run: |
         cd Source
         python manage.py runserver &

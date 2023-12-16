@@ -5,9 +5,11 @@ on:
   push:
     branches:
       - main
+      - Develop
   pull_request:
     branches:
       - main
+      - Develop
 
 jobs:
   # job name 
@@ -29,7 +31,7 @@ jobs:
         run: |
           cd Source
           python -m pip install --upgrade pip
-          pip install flake8
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Lint with flake8
         # lint our code

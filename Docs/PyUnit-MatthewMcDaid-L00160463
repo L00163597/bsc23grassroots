@@ -1,6 +1,0 @@
-PyUnit testing 
-
-PyUnit testing, often referred to as "unit-test" in Python, is a built-in framework for conducting unit tests. 
-It allows developers to create test cases, set up fixtures, and make assertions to check the correctness of individual components in their code. 
-Unit-test supports automatic test discovery and provides built-in reporting. 
-By using unit-test, developers can systematically validate the behaviour of their code, detect bugs early, and maintain code quality throughout the software development process.

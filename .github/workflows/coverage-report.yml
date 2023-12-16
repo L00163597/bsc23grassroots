@@ -5,9 +5,11 @@ on:
   push:
     branches:
       - main
+      - Develop
   pull_request:
     branches:
       - main
+      - Develop
 
 jobs:
   # only one job per workflow here it is build
@@ -29,12 +31,11 @@ jobs:
         run: |
           cd Source
           python -m pip install --upgrade pip
-          pip install Django
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Coverage report
         # coverage measurement of tests
         run: |
           cd Source
-          pip install coverage
           coverage run manage.py test
           coverage report
