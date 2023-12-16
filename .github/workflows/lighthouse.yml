@@ -21,16 +21,17 @@ jobs:
         cd Source
         python manage.py runserver &
 
-    - run: mkdir /tmp/artifacts
+    - run: mkdir -p ${{ github.workspace }}/tmp/artifacts
     
     - name: Run Lighthouse
       uses: foo-software/lighthouse-check-action@master
       with:
-        outputDirectory: /tmp/artifacts
-        urls: 'http://127.0.0.1:8000/'
+        outputDirectory: ${{ github.workspace }}/tmp/artifacts
+        urls: 'https://www.foo.software,http://127.0.0.1:8000/'
         
     - name: Upload artifacts
-      uses: actions/upload-artifact@v4
+      #uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@master
       with:
         name: Lighthouse reports
-        path: /tmp/artifacts
+        path: ${{ github.workspace }}/tmp/artifacts
