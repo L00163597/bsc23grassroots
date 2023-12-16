@@ -1,0 +1,22 @@
+name: Lighthouse Check
+on:
+  pull_request:
+
+  workflow_dispatch:
+
+jobs:
+  lighthouse-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: mkdir /tmp/artifacts
+    - name: Run Lighthouse
+      uses: foo-software/lighthouse-check-action@master
+      with:
+        outputDirectory: /tmp/artifacts
+        urls: 'https://www.foo.software,https://www.foo.software/contact'
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: Lighthouse reports
+        path: /tmp/artifacts
