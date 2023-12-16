@@ -9,12 +9,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+       cd Source
+       python -m pip install --upgrade pip
+       if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
+    - name: Run Django Server
+      run: |
+        cd Source
+        python manage.py runserver &
+
     - run: mkdir /tmp/artifacts
+    
     - name: Run Lighthouse
       uses: foo-software/lighthouse-check-action@master
       with:
         outputDirectory: /tmp/artifacts
-        urls: 'https://www.foo.software,https://www.foo.software/contact'
+        urls: 'http:127.0.0.1:8000'
+        
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
