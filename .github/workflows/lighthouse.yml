@@ -1,0 +1,37 @@
+name: Lighthouse Check
+on:
+  pull_request:
+
+  workflow_dispatch:
+
+jobs:
+  lighthouse-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+       cd Source
+       python -m pip install --upgrade pip
+       if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
+    - name: Run Django Server
+      run: |
+        cd Source
+        python manage.py runserver &
+
+    - run: mkdir -p ${{ github.workspace }}/tmp/artifacts
+    
+    - name: Run Lighthouse
+      uses: foo-software/lighthouse-check-action@master
+      with:
+        outputDirectory: ${{ github.workspace }}/tmp/artifacts
+        urls: 'https://www.foo.software,http://127.0.0.1:8000/'
+        
+    - name: Upload artifacts
+      #uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@master
+      with:
+        name: Lighthouse reports
+        path: ${{ github.workspace }}/tmp/artifacts
