@@ -23,7 +23,7 @@ jobs:
        python-version: ${{ matrix.python-version }}
 
     - name: Install dependencies
-      # This will install all of the dependencies from requirments.txt
+      # This will install all the dependencies from requirements.txt
       run: |
        cd Source
        python -m pip install --upgrade pip

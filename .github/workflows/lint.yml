@@ -3,13 +3,9 @@ name: Lint
 on:
   # events
   push:
-    branches:
-      - main
-      - Develop
+    branches: [ "main", "Develop" ]
   pull_request:
-    branches:
-      - main
-      - Develop
+    branches: [ "main", "Develop" ]
 
 jobs:
   # job name 

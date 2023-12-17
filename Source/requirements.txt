@@ -7,5 +7,5 @@ pycodestyle
 selenium==4.14.0
 flake8==6.1.0
 coverage==7.3.2
-locust
+locust== 2.19.1
 setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
