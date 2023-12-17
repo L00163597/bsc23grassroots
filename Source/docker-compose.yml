@@ -1,11 +1,17 @@
 version: '3'
 
 services:
+  # Define a service named 'app'
   app:
+    # Use the specified Docker image from DockerHub with the specified tag
     image: pratik180797/bsc23grassroots:tagname
+    # Assign a specific name to the container
     container_name: bsc23grassroots
+    # Always restart the container if it stops
     restart: always
+    # Map port 8000 on the host to port 8000 on the container
     ports:
       - "8000:8000"
+    # Set environment variables for the container
     environment:
       NODE_ENV: production

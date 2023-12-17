@@ -1,4 +1,5 @@
 # Use the official Python image as the base image
+# Must update this value to be latest version of Python: 3.12
 FROM python:3.9
 
 # Set environment variables to non-interactive mode and unbuffered Python output

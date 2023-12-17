@@ -1,0 +1,25 @@
+name: Selenium Tests
+
+on:
+ push:
+   branches: [ main, selenium_tests ]
+ pull_request:
+   branches: [ main, selenium_tests ]
+
+jobs:
+ build:
+
+   runs-on: ubuntu-latest
+
+   steps:
+   - uses: actions/checkout@v3
+   - name: Install dependencies
+    # This will only run if the requirements file exists
+     run: |
+       cd Source
+       python -m pip install --upgrade pip
+       if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+   - name: Run Selenium Tests
+     run: |
+       cd Source
+       python manage.py test grassroots/tests/seleniumTests
