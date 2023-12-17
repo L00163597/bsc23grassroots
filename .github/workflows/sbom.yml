@@ -1,0 +1,22 @@
+name: SBOM
+
+on:
+ push:
+   branches: [ "main", "Develop" ]
+ pull_request:
+   branches: [ "main", "Develop" ]
+
+jobs:
+ sbom:
+
+   runs-on: ubuntu-latest
+
+   steps:
+   - uses: actions/checkout@v3
+   - name: Generate Python SBOM
+     uses: CycloneDX/gh-python-generate-sbom@v2
+     # Generates the SBOM file into an XML file based of off the requirements we have
+     with:
+        input: Source/requirements.txt
+        output: ./bom.xml
+        format: xml
