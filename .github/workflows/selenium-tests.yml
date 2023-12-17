@@ -2,12 +2,12 @@ name: Selenium Tests
 
 on:
  push:
-   branches: [ main, selenium_tests ]
+   branches: [ "main" ]
  pull_request:
-   branches: [ main, selenium_tests ]
+   branches: [ "main" ]
 
 jobs:
- build:
+  selenium-tests:
 
    runs-on: ubuntu-latest
 
@@ -19,7 +19,9 @@ jobs:
        cd Source
        python -m pip install --upgrade pip
        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
    - name: Run Selenium Tests
+     # Runs ONLY the selenium tests
      run: |
        cd Source
        python manage.py test grassroots/tests/seleniumTests

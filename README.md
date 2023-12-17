@@ -1,29 +1,43 @@
 # bsc23grassroots
 
-BScDevOps Assign - Team 
+![Code Coverage](https://github.com/ruthlennonatu/bsc23grassroots/actions/workflows/coverage-report.yml/badge.svg)
+![Django Build](https://github.com/ruthlennonatu/bsc23grassroots/actions/workflows/django.yml/badge.svg)
+![Selenium Tests](https://github.com/ruthlennonatu/bsc23grassroots/actions/workflows/selenium-tests.yml/badge.svg?event=push)
+![Unit Tests](https://github.com/ruthlennonatu/bsc23grassroots/actions/workflows/unit-tests.yml/badge.svg?event=push)
+![OWASP Zap](https://github.com/ruthlennonatu/bsc23grassroots/actions/workflows/dast-scan.yml/badge.svg?event=push)
+![Synk Security](https://github.com/ruthlennonatu/bsc23grassroots/actions/workflows/snyk-security.yml/badge.svg?event=push)
+![Synk Security](https://github.com/ruthlennonatu/bsc23grassroots/actions/workflows/locust-test.yml/badge.svg?event=push)
+---
+
+BScDevOps Assign - Team 2
 
 # Table of Contents
-- Preamble
-- Product Owner
-- Product Development Team
-- Project Deadline
-- Project Specification
-- Useful Links
-- More Information
-- Risk Register
-- Tenants of Design
-- Social Contract
-- Meetings
-- Communication
-- Other
-Branching Strategy
-Estimating Story Points
-Definition of Ready
-Definition of Done
-Preamble
-  
-This is the online repository for the DevOps Assignment.
+- [Preamble](#preamble)
+- [Scrum Master](#scrum-master)
+- [Product Owner](#product-owner)
+- [Product Development Team](#product-development-team)
+- [Project Deadline](#project-deadline)
+- [Project Specification](#project-specification)
+- [Tools and Services used](#tools-and-services-used)
+- [Frameworks](#frameworks)
+- [Useful Links](#useful-links)
+- [Section Description](#sectiondescription)
+- [Risk Register](#risk-register)
+- [Tenants of Design](#tenants-of-design)
+- [Security](#security)
+- [Testing](#testing)
+- [Environments](#environments)
+- [GitHub Version Control](#github-version-control)
+- [Agile project management methods/principles (jira)](#agile-project-management-methodsprinciples-jira)
+- [Social Contract](#social-contract)
+- [Meetings](#meetings)
+- [Communication](#communication)
+- [Aglie way of working](#agile-way-of-working)
+- [Estimating Story Points](#estimating-story-points)
+- [Definition of Ready](#definition-of-ready)
 
+# Preamble
+This is the online repository for the DevOps Assignment.
 
 Our product will be delivered using an Agile methodology that embraces the DevOps culture. Please note that our culture embraces change and these documents are treated as living, breathing artefacts that will be continuously updated.
 
@@ -56,10 +70,10 @@ Lewis Barett L00145352 (Permanent)
 Refer to BB for deadlines
 
 # Project Specification
-Clean and simple design
-User access levels (client, administrator)
-Includes at least one self developed api and one webservice
-To be run over <specify platform>
+- Clean and simple design
+- User access levels (client, administrator)
+- Includes at least one self developed api and one webservice 
+- To be run over Django
 
 # Tools and services used
 
@@ -70,10 +84,11 @@ To be run over <specify platform>
 5.	**Snyk** - is a security platform that helps developers find and fix vulnerabilities in their open-source dependencies. It integrates into the development workflow, providing real-time feedback and automated remediation to improve the overall security of software applications.
 6.	**OWASP ZAP** - is an open-source DAST tool that integrates into the development workflow, scans a target URL for vulnerabilities and maintains an issue in GitHub repository for the identified alerts.
 7.	**Unit testing** - is the practice of testing individual parts of a software program to ensure they work correctly in isolation. It helps catch and fix errors early in the development process.
-8.	**Performance testing** - assesses how well a system functions under different conditions, helping ensure it meets speed, responsiveness, and scalability requirements.
+8.	**Locust Performance testing** - assesses how well a system functions under different conditions, helping ensure it meets speed, responsiveness, and scalability requirements.
 
 # Frameworks
 We will be using Django and SQLite
+
 IDE will be Pycharm 2023 Community Edition
 
 # Useful Links
@@ -81,34 +96,30 @@ IDE will be Pycharm 2023 Community Edition
  - GitHub: https://github.com/ruthlennonatu/
  - Repository Link: https://github.com/ruthlennonatu/bsc23grassroots.git
 
-# More Information
-For more information visit our other sections
 
 # Section	Description
-Process	Describes the companies process
-Project Log	Log of project activities
-Costings	Overview of the project cost
-Architecture	Outlines the architecture
-Environments	Overview of the environment set-up
-DR Plan	Disaster Recovery Plan and procedures
-Requirements	Overview of the requirements for the project
-SLAs	Service level agreements
-Risk Management	How we manage risk
-Security	Overview of security
-Project Log	Team log for the project
+- Process	- Describes the companies process
+- Project Log	- Log of project activities
+- Costings - Overview of the project cost
+- Architecture - Outlines the architecture
+- Environments - Overview of the environment set-up
+- DR Plan	- Disaster Recovery Plan and procedures
+- Requirements - Overview of the requirements for the project
+- SLAs - Service level agreements
+- Risk Management	- How we manage risk
+- Security - Overview of security
+- Project Log	- Team log for the project
 
 # Risk Register
 These are the current Risks on the project, re-aligned on a weekly basis
 
 
 # Tenants of Design
-The code framework to be used will be Java, we will be programming using the app IntelliJ
+The code framework to be used will be Python, we will be programming using the app PyCharm
 
 # Security:
-- SpotBugs: uses static analysis to find bugs in java code. 
- 
-- PMD: Static code anaylsis checking tool. The tool scans Java source files to look for potential vulnerabilities such as coding errors and security flaws. It offers a cheap alternative to the tedious process of continually going over a huge code base. PMD is also capable of detecting other issues, such as dead code and performance issues along with poor code practices and styling. PMD has been installed through GitHub actions to scan code as it is commited.
-
+- Synk: Uses static analysis to find security flaws in the code. 
+- OWASP Zap: Black box dynamic testing of the application to search for live vulnerabilities 
 
 # Testing:
     Unit testing

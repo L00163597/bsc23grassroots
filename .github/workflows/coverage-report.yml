@@ -3,17 +3,13 @@ name: Coverage Report
 on:
   #events
   push:
-    branches:
-      - main
-      - Develop
+    branches: [ "main", "Develop" ]
   pull_request:
-    branches:
-      - main
-      - Develop
+    branches: [ "main", "Develop" ]
 
 jobs:
   # only one job per workflow here it is build
-  build:
+  coverage:
     # runs on ubuntu virtual machine
     runs-on: ubuntu-latest
 
